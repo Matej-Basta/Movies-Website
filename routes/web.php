@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get("/", "IndexController@index");
 
 Route::get("/top-rated-movies", "MovieController@topRated");
+
+Route::get("/top-rated-games", "VideogameController@topRated");
