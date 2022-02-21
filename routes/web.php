@@ -18,3 +18,5 @@ Route::get("/", "IndexController@index");
 Route::get("/top-rated-movies", "MovieController@topRated");
 
 Route::get("/top-rated-games", "VideogameController@topRated");
+
+Route::get("/movies/shawshank-redemption", "MovieController@shawshank");

@@ -26,4 +26,90 @@ class MovieController extends Controller
 
         return $top_rated_movies;
     }
+
+    function shawshank()
+    {
+        $movie = DB::selectOne("
+            SELECT *
+            FROM `movies`
+            WHERE `name` LIKE '%shawshank%'
+            LIMIT 1
+        ");
+
+        $cast = DB::select("
+            SELECT `people`.`fullname`, `movie_person`.`description`, `positions`.`slug`
+            FROM `people`
+            LEFT JOIN `movie_person`
+            ON `movie_person`.`person_id` = `people`.`id`
+            LEFT JOIN `positions`
+            ON `movie_person`.`position_id` = `positions`.`id`
+            WHERE `movie_person`.`movie_id`= 111161
+            AND `positions`.`slug` = 'cast'
+        ");
+
+        $director = DB::select("
+            SELECT `people`.`fullname`, `movie_person`.`description`, `positions`.`slug`
+            FROM `people`
+            LEFT JOIN `movie_person`
+            ON `movie_person`.`person_id` = `people`.`id`
+            LEFT JOIN `positions`
+            ON `movie_person`.`position_id` = `positions`.`id`
+            WHERE `movie_person`.`movie_id`= 111161
+            AND `positions`.`slug` = 'director'
+        ");
+
+        $writer = DB::select("
+            SELECT `people`.`fullname`, `movie_person`.`description`, `positions`.`slug`
+            FROM `people`
+            LEFT JOIN `movie_person`
+            ON `movie_person`.`person_id` = `people`.`id`
+            LEFT JOIN `positions`
+            ON `movie_person`.`position_id` = `positions`.`id`
+            WHERE `movie_person`.`movie_id`= 111161
+            AND `positions`.`slug` = 'writer'
+        ");
+
+        $producer = DB::select("
+            SELECT `people`.`fullname`, `movie_person`.`description`, `positions`.`slug`
+            FROM `people`
+            LEFT JOIN `movie_person`
+            ON `movie_person`.`person_id` = `people`.`id`
+            LEFT JOIN `positions`
+            ON `movie_person`.`position_id` = `positions`.`id`
+            WHERE `movie_person`.`movie_id`= 111161
+            AND `positions`.`slug` = 'producer'
+        ");
+
+        $composer = DB::select("
+            SELECT `people`.`fullname`, `movie_person`.`description`, `positions`.`slug`
+            FROM `people`
+            LEFT JOIN `movie_person`
+            ON `movie_person`.`person_id` = `people`.`id`
+            LEFT JOIN `positions`
+            ON `movie_person`.`position_id` = `positions`.`id`
+            WHERE `movie_person`.`movie_id`= 111161
+            AND `positions`.`slug` = 'composer'
+        ");
+
+        $cinematographer = DB::select("
+            SELECT `people`.`fullname`, `movie_person`.`description`, `positions`.`slug`
+            FROM `people`
+            LEFT JOIN `movie_person`
+            ON `movie_person`.`person_id` = `people`.`id`
+            LEFT JOIN `positions`
+            ON `movie_person`.`position_id` = `positions`.`id`
+            WHERE `movie_person`.`movie_id`= 111161
+            AND `positions`.`slug` = 'cinematographer'
+        ");
+
+        return view("movies.detail", [
+            "movie" => $movie,
+            "cast" => $cast,
+            "director" => $director,
+            "writer" => $writer,
+            "producer" => $producer,
+            "composer" => $composer,
+            "cinematographer" => $cinematographer,
+        ]);
+    }
 }
