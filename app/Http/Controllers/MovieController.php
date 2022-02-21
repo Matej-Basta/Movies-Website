@@ -8,14 +8,16 @@ use Illuminate\Support\Facades\DB;
 class MovieController extends Controller
 {
     function topRated()
-    {
+    {   
+        $page_nr = $_GET["page"] ?? 1;
+        $offset = ($_GET["page"] - 1) * 10;
 
         $results = DB::select("
         SELECT *
         FROM `movies`
         WHERE `movies`.`movie_type_id` = 1
         ORDER BY `rating` DESC
-        LIMIT 50
+        LIMIT {$offset}, 10
         ");
         
         $top_rated_movies = view("movies.top-rated", [

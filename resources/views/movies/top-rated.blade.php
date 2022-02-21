@@ -15,5 +15,13 @@
             </li>
         <?php endforeach; ?>
     </ul>
+
+    <p style="display:inline">page:</p>
+
+    <a href="top-rated-movies?page=1">1</a>
+    <a href="top-rated-movies?page=2">2</a>
+    <a href="top-rated-movies?page=3">3</a>
+    <a href="top-rated-movies?page=4">4</a>
+    <a href="top-rated-movies?page=5">5</a>
 </body>
 </html>
