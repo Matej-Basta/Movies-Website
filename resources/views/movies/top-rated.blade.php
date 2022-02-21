@@ -23,5 +23,7 @@
     <a href="top-rated-movies?page=3">3</a>
     <a href="top-rated-movies?page=4">4</a>
     <a href="top-rated-movies?page=5">5</a>
+    <br>
+    <a href="/">Home</a>
 </body>
 </html>

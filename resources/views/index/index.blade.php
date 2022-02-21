@@ -17,5 +17,8 @@
 
         <?php endforeach; ?>
     </ul>
+
+    <a href="/top-rated-movies">50 top rated movies</a>
+    <a href="/top-rated-games">50 top rated games</a>
 </body>
 </html>

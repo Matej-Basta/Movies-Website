@@ -10,7 +10,7 @@ class MovieController extends Controller
     function topRated()
     {   
         $page_nr = $_GET["page"] ?? 1;
-        $offset = ($_GET["page"] - 1) * 10;
+        $offset = ($page_nr - 1) * 10;
 
         $results = DB::select("
         SELECT *

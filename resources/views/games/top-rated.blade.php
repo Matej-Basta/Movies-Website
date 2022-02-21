@@ -24,5 +24,7 @@
     <a href="?page=3">3</a>
     <a href="?page=4">4</a>
     <a href="?page=5">5</a>
+    <br>
+    <a href="/">Home</a>
 </body>
 </html>
