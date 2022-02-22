@@ -17,9 +17,9 @@ class MovieController extends Controller
         $query_builder->where("movie_type_id", 1);
         $query_builder->where("votes_nr", ">", 5000);
 
-        $results = $query_builder->get();
+        $movies = $query_builder->get();
 
-        dd($results);
+        return view("movies.index", compact("movies"));
     }
     
     function topRated()
