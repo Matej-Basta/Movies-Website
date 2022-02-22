@@ -17,10 +17,25 @@ class MovieController extends Controller
         $query_builder->where("movie_type_id", 1);
         $query_builder->where("votes_nr", ">", 5000);
 
-        $movies = $query_builder->get();
+        $movie = $query_builder->first();
 
-        return view("movies.index", compact("movies"));
+        // dd($movie);
+
+        return view("movies.index", compact("movie"));
     }
+
+    // public function index()
+    // {
+    //     $query_builder = Movie::query();
+    //     $query_builder->orderBy("rating", "desc");
+    //     $query_builder->limit(50);
+    //     $query_builder->where("movie_type_id", 1);
+    //     $query_builder->where("votes_nr", ">", 5000);
+
+    //     $movies = $query_builder->get();
+
+    //     return view("movies.index", compact("movies"));
+    // }
     
     function topRated()
     {   

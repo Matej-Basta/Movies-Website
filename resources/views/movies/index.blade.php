@@ -7,21 +7,35 @@
     <title>List of movies</title>
 </head>
 <body>
-    <h1>Top rated movies</h1>
+    <h1>{{ $movie->name }}</h1>
     <ul>
-        <?php foreach($movies as $movie) : ?>
+    
 
         
         <li>
-            <?= $movie->name ?> <br>
             Rating: <?= $movie->rating ?> / 10
-            <h2>People:</h2>
-            @foreach ($movie->people as $person)
+            <!-- <h2>People:</h2> -->
+            <!-- @foreach ($movie->people as $person)
                 <li>{{ $person["fullname"] }}</li>
-            @endforeach
+            @endforeach -->
         </li>
-        
-        <?php endforeach; ?>
+
+        <p>Reviews:</p>
+        <ul>
+
+            @foreach ($movie->reviews as $review)
+                <li>{{ $review->text }}</li>
+            @endforeach
+        </ul>
+
+        <form action="movies/rate" method="post">
+            @csrf
+            <br>
+
+            <input type="hidden" name="movie_id" value="{{ $movie->id }}">
+            <input type="text" name="value" value="" placeholder="value">
+            <button type="submit">Submit</button>
+        </form>
     </ul>
 </body>
 </html>

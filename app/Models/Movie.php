@@ -11,6 +11,7 @@ use App\Models\MovieStatus;
 use App\Models\Certification;
 use App\Models\OriginCountry;
 use App\Models\Person;
+use App\Models\Review;
 
 class Movie extends Model
 {
@@ -49,5 +50,10 @@ class Movie extends Model
     public function people()
     {
         return $this->belongsToMany(Person::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
     }
 }
