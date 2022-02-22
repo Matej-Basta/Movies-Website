@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\MovieType;
 
-class Movie extends Model
+class MovieType extends Model
 {
     use HasFactory;
 
-    public function type()
+    public function movies()
     {
-        return $this->belongsTo(MovieType::class);
+        return $this->hasMany(Movie::class);
     }
 }
