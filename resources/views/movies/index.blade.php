@@ -10,10 +10,17 @@
     <h1>Top rated movies</h1>
     <ul>
         <?php foreach($movies as $movie) : ?>
+
+        
         <li>
             <?= $movie->name ?> <br>
             Rating: <?= $movie->rating ?> / 10
+            <h2>People:</h2>
+            @foreach ($movie->people as $person)
+                <li>{{ $person["fullname"] }}</li>
+            @endforeach
         </li>
+        
         <?php endforeach; ?>
     </ul>
 </body>
